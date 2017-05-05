@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Manages the HexMap
+/// </summary>
 public class HexMap : MonoBehaviour
 {
 
@@ -15,16 +18,22 @@ public class HexMap : MonoBehaviour
 
     public GameObject HexPrefab;
 
+    public int NumRows = 10;
+    public int NumCols = 15;
+
     /// <summary>
     /// Generates the Map
     /// </summary>
 	public void GenerateMap()
     {
-        for (int col = 0; col < 10; col++)
+        for (int col = 0; col < NumCols; col++)
         {
-            for (int row = 0; row < 10; row++)
+            for (int row = 0; row < NumRows; row++)
             {
-                GameObject HexGO = Instantiate(HexPrefab, new Vector3(col, 0, row), Quaternion.identity, this.transform);
+                Hex h = new Hex(col, row);
+                Vector3 pos = h.Position();
+
+                GameObject HexGO = Instantiate(HexPrefab, pos, Quaternion.identity, this.transform);
             }
         }
     }
