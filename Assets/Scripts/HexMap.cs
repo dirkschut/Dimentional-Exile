@@ -31,6 +31,12 @@ public class HexMap : MonoBehaviour
             for (int row = 0; row < NumRows; row++)
             {
                 Hex h = new Hex(col, row);
+
+                if (h.Q == 0 && h.R == 0)
+                    h.name = "Cell";
+                else
+                    h.name = "Void";
+
                 Vector3 pos = h.PositionFromCamera(Camera.main.transform.position, NumRows, NumCols);
 
                 GameObject HexGO = Instantiate(HexPrefab, pos, Quaternion.identity, this.transform);

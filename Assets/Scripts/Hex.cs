@@ -25,6 +25,8 @@ public class Hex
     public readonly int R;  // Row
     public readonly int S;  // Sum
 
+    public string name;
+
     public float border = 0.1f;
 
     public static readonly float WIDTH_MULTIPLIER = Mathf.Sqrt(3) / 2;
