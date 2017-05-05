@@ -134,4 +134,9 @@ public class Hex
         GameObject.Find("HoverInfoName").GetComponent<Text>().text = "Name: " + name;
         GameObject.Find("HoverInfoPosition").GetComponent<Text>().text = "Position: " + R + "," + Q;
     }
+
+    public void Click()
+    {
+        GameObject.Find("HexInfo").GetComponent<HexInfoComponent>().Hex = this;
+    }
 }

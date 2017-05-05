@@ -33,7 +33,10 @@ public class HexMap : MonoBehaviour
                 Hex h = new Hex(col, row);
 
                 if (h.Q == 0 && h.R == 0)
+                {
                     h.name = "Cell";
+                    GameObject.Find("HexInfo").GetComponent<HexInfoComponent>().Hex = h;
+                }  
                 else
                     h.name = "Void";
 
