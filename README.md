@@ -7,4 +7,4 @@ A game created by Dirk 'mrDLSable' Schut
 - Blender
 
 ### Guides
-- Quill18's (https://github.com/quill18/MostlyCivilizedHexEngine)[Mostly Civilized Hex Engine] (https://www.youtube.com/watch?v=j-rCuN7uMR8)[VIDEO]
+- Quill18's [Mostly Civilized Hex Engine](https://github.com/quill18/MostlyCivilizedHexEngine) [VIDEO](https://www.youtube.com/watch?v=j-rCuN7uMR8)
