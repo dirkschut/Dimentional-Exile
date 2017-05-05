@@ -30,6 +30,8 @@ public class Hex
     public static readonly float WIDTH_MULTIPLIER = Mathf.Sqrt(3) / 2;
 
     public static float radius = 1;
+    public static bool allowWrapHor = true;
+    public static bool allowWrapVert = true;
 
     /// <summary>
     /// Calculates the position of the hex in the unity world space
@@ -42,6 +44,46 @@ public class Hex
             0,
             HexVericalSpacing() * R
             );
+    }
+
+    /// <summary>
+    /// Get the Position of the Hex relative to the camera
+    /// </summary>
+    /// <param name="cameraPosition">The position of the camera</param>
+    /// <param name="numRows">The amount of rows in the world</param>
+    /// <param name="numColumns">The amount of columns in the world</param>
+    /// <returns></returns>
+    public Vector3 PositionFromCamera(Vector3 cameraPosition, float numRows, float numColumns)
+    {
+        float mapHeight = numRows * HexVericalSpacing();
+        float mapWidth = numColumns * HexHorizontalSpacing();
+        Vector3 pos = Position();
+
+        if (allowWrapHor)
+        {
+            float numWidthsFromCamera = (pos.x - cameraPosition.x) / mapWidth;
+
+            int numToMove = (int)Mathf.Round(numWidthsFromCamera);
+            
+            if(Mathf.Abs(numToMove) >= 1)
+            {
+                pos.x -= numToMove * mapWidth;
+            }
+        }
+
+        if (allowWrapVert)
+        {
+            float numHeightsFromCamera = (pos.z - cameraPosition.z) / mapHeight;
+
+            int numToMove = (int)Mathf.Round(numHeightsFromCamera);
+
+            if (Mathf.Abs(numToMove) >= 1)
+            {
+                pos.z -= numToMove * mapHeight;
+            }
+        }
+
+        return pos;
     }
 
     /// <summary>

@@ -31,9 +31,11 @@ public class HexMap : MonoBehaviour
             for (int row = 0; row < NumRows; row++)
             {
                 Hex h = new Hex(col, row);
-                Vector3 pos = h.Position();
+                Vector3 pos = h.PositionFromCamera(Camera.main.transform.position, NumRows, NumCols);
 
                 GameObject HexGO = Instantiate(HexPrefab, pos, Quaternion.identity, this.transform);
+                HexGO.GetComponent<HexComponent>().Hex = h;
+                HexGO.GetComponent<HexComponent>().HexMap = this;
             }
         }
     }
