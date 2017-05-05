@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Manages the various coordinates of the hexes
@@ -122,5 +123,15 @@ public class Hex
     private float HexHeight()
     {
         return radius * 2 + border;
+    }
+
+    /// <summary>
+    /// Get's called when the mouse enters the hex from the child
+    /// </summary>
+    public void Hover()
+    {
+        Debug.Log("Test: " + Q + ", " + R + " " + name);
+        GameObject.Find("HoverInfoName").GetComponent<Text>().text = "Name: " + name;
+        GameObject.Find("HoverInfoPosition").GetComponent<Text>().text = "Position: " + R + "," + Q;
     }
 }
