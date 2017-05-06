@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Manages the Movement of the camera
+/// </summary>
 public class CameraMovement : MonoBehaviour
 {
 

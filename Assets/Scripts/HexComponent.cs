@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This component manages the interaction of the hex with the unity game world
+/// </summary>
 public class HexComponent : MonoBehaviour
 {
 

@@ -26,15 +26,14 @@ public class Hex
     public readonly int R;  // Row
     public readonly int S;  // Sum
 
-    public string name;
+    public string name;  // The name of the Hex
 
-    public float border = 0.1f;
+    public static readonly float border = 0.1f;  // The border between hexes
+    public static readonly float WIDTH_MULTIPLIER = Mathf.Sqrt(3) / 2;  // The multiplier of the width of a hex compared to its height
+    public static readonly float radius = 1;  // The radius of a hex
 
-    public static readonly float WIDTH_MULTIPLIER = Mathf.Sqrt(3) / 2;
-
-    public static float radius = 1;
-    public static bool allowWrapHor = true;
-    public static bool allowWrapVert = true;
+    public static readonly bool allowWrapHor = true;  // If the map is allowed to wrap horizontally
+    public static readonly bool allowWrapVert = true;  // If the map is allowed to wrap vertically
 
     /// <summary>
     /// Calculates the position of the hex in the unity world space
@@ -126,7 +125,7 @@ public class Hex
     }
 
     /// <summary>
-    /// Get's called when the mouse enters the hex from the child
+    /// Gets called when the mouse enters the hex from the child
     /// </summary>
     public void Hover()
     {
@@ -135,6 +134,9 @@ public class Hex
         GameObject.Find("HoverInfoPosition").GetComponent<Text>().text = "Position: " + R + "," + Q;
     }
 
+    /// <summary>
+    /// Gets called when the mouse is clicked on this hex from the child
+    /// </summary>
     public void Click()
     {
         GameObject.Find("HexInfo").GetComponent<HexInfoComponent>().Hex = this;

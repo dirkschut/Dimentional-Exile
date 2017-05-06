@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// This component manages the Hex Info panel content and interaction
+/// </summary>
 public class HexInfoComponent : MonoBehaviour {
 
-    public Hex Hex;
+    public Hex Hex;  // Contains thecurrent hex
 
-    public static bool mouseOver = false;
-    public float lastMouseOver;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
+    public static bool mouseOver = false;  // If the mouse is over this panel, this variable is true
 	
-	// Update is called once per frame
+	/// <summary>
+    /// Updates the info panel
+    /// </summary>
 	void Update () {
 		if(Hex != null)
         {
@@ -24,11 +23,17 @@ public class HexInfoComponent : MonoBehaviour {
         }
 	}
 
+    /// <summary>
+    /// Gets called when the mouse enters the info panel
+    /// </summary>
     public void OnMouseEnter()
     {
         mouseOver = true;
     }
 
+    /// <summary>
+    /// Gets called when the mouse leaves the info panel
+    /// </summary>
     public void OnMouseExit()
     {
         mouseOver = false;
