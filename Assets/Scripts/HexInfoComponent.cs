@@ -7,6 +7,9 @@ public class HexInfoComponent : MonoBehaviour {
 
     public Hex Hex;
 
+    public static bool mouseOver = false;
+    public float lastMouseOver;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -20,4 +23,14 @@ public class HexInfoComponent : MonoBehaviour {
             this.transform.FindChild("Position").GetComponent<Text>().text = "Position: " + Hex.Q + ", " + Hex.R;
         }
 	}
+
+    public void OnMouseEnter()
+    {
+        mouseOver = true;
+    }
+
+    public void OnMouseExit()
+    {
+        mouseOver = false;
+    }
 }

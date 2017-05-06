@@ -15,6 +15,7 @@ public class HexMouse : MonoBehaviour {
 
     private void OnMouseDown()
     {
-        this.transform.parent.gameObject.GetComponent<HexComponent>().Hex.Click();
+        if(!HexInfoComponent.mouseOver)
+            this.transform.parent.gameObject.GetComponent<HexComponent>().Hex.Click();
     }
 }
