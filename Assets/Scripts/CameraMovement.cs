@@ -8,6 +8,7 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
 
+
 	/// <summary>
     /// Instantiates the CameraMovement script object
     /// </summary>
@@ -18,11 +19,20 @@ public class CameraMovement : MonoBehaviour
 
     public Vector3 oldPosition;
 
+    public float CameraSpeed = 0.1f;
+
 	/// <summary>
     /// Is called once per frame to update the Camera
     /// </summary>
 	void Update ()
     {
+        Vector3 cameraMovement = new Vector3(
+            Input.GetAxis("Horizontal") * CameraSpeed,
+            Input.GetAxis("Vertical") * CameraSpeed,
+            0);
+
+        transform.Translate(cameraMovement);
+
 		if(this.transform.position != oldPosition)
         {
             oldPosition = this.transform.position;
