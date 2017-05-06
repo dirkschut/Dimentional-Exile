@@ -13,10 +13,17 @@ public class HexMap : MonoBehaviour
     /// </summary>
 	void Start ()
     {
+        Hex.HexTypes = new Dictionary<string, int>();
+        for (int i = 0; i < HexMaterials.Length; i++)
+        {
+            Hex.HexTypes.Add(HexMaterials[i].name, i);
+            Debug.Log(HexMaterials[i].name);
+        }
         GenerateMap();
-	}
+    }
 
     public GameObject HexPrefab;
+    public Material[] HexMaterials;
 
     public int NumRows = 10;
     public int NumCols = 15;
@@ -34,17 +41,19 @@ public class HexMap : MonoBehaviour
 
                 if (h.Q == 0 && h.R == 0)
                 {
-                    h.name = "Cell";
+                    h.Name = "Cell";
                     GameObject.Find("HexInfo").GetComponent<HexInfoComponent>().Hex = h;
                 }  
                 else
-                    h.name = "Void";
+                    h.Name = "Void";
 
                 Vector3 pos = h.PositionFromCamera(Camera.main.transform.position, NumRows, NumCols);
 
                 GameObject HexGO = Instantiate(HexPrefab, pos, Quaternion.identity, this.transform);
                 HexGO.GetComponent<HexComponent>().Hex = h;
                 HexGO.GetComponent<HexComponent>().HexMap = this;
+                Renderer r = HexGO.transform.Find("HexModel").GetComponent<Renderer>();
+                r.material = HexMaterials[Hex.HexTypes[h.Type]];
             }
         }
     }

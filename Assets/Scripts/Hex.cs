@@ -20,13 +20,25 @@ public class Hex
         Q = q;
         R = r;
         S = -(q + r);
+
+        if(Q == 0 && R == 0)
+        {
+            Type = "Cell";
+        }
+        else
+        {
+            Type = "Void";
+        }
     }
 
     public readonly int Q;  // Column
     public readonly int R;  // Row
     public readonly int S;  // Sum
 
-    public string name;  // The name of the Hex
+    public string Name;  // The name of the Hex
+    public string Type;
+
+    public static Dictionary<string, int> HexTypes;
 
     public static readonly float border = 0.1f;  // The border between hexes
     public static readonly float WIDTH_MULTIPLIER = Mathf.Sqrt(3) / 2;  // The multiplier of the width of a hex compared to its height
@@ -129,8 +141,8 @@ public class Hex
     /// </summary>
     public void Hover()
     {
-        Debug.Log("Test: " + Q + ", " + R + " " + name);
-        GameObject.Find("HoverInfoName").GetComponent<Text>().text = "Name: " + name;
+        Debug.Log("Test: " + Q + ", " + R + " " + Name);
+        GameObject.Find("HoverInfoName").GetComponent<Text>().text = "Name: " + Name;
         GameObject.Find("HoverInfoPosition").GetComponent<Text>().text = "Position: " + R + "," + Q;
     }
 
