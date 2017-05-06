@@ -40,7 +40,7 @@ public class Hex
 
     public static Dictionary<string, int> HexTypes;
 
-    public static readonly float border = 0.1f;  // The border between hexes
+    public static readonly float border = 0.0f;  // The border between hexes
     public static readonly float WIDTH_MULTIPLIER = Mathf.Sqrt(3) / 2;  // The multiplier of the width of a hex compared to its height
     public static readonly float radius = 1;  // The radius of a hex
 
@@ -141,7 +141,6 @@ public class Hex
     /// </summary>
     public void Hover()
     {
-        Debug.Log("Test: " + Q + ", " + R + " " + Name);
         GameObject.Find("HoverInfoName").GetComponent<Text>().text = "Name: " + Name;
         GameObject.Find("HoverInfoPosition").GetComponent<Text>().text = "Position: " + R + "," + Q;
     }
