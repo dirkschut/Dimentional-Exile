@@ -13,6 +13,7 @@ public class HexMap : MonoBehaviour
     /// </summary>
 	void Start ()
     {
+        ItemData.CreateItemDatas();
         Hex.HexTypes = new Dictionary<string, int>();
         for (int i = 0; i < HexMaterials.Length; i++)
         {
