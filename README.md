@@ -1,5 +1,5 @@
 # Directional-Exile
-A game created by Dirk 'mrDLSable' Schut
+A game created by Dirk 'mrDLSable' Schut iin order to learn how to use Unity3D. The end goal is to create an incremental type game with crafting and combat and skills and fighting and a lot of other things.
 
 ## Resources used
 ### Software
