@@ -31,7 +31,7 @@ public class ItemData
     {
         ItemDatas = new Dictionary<string, ItemData>();
 
-        new ItemData("Basic Blank Rune").SetImage("test").SetStackLimit(10);
+        new ItemData("Basic Blank Rune").SetImage("Basic Blank Rune").SetStackLimit(10);
     }
 
     /// <summary>
