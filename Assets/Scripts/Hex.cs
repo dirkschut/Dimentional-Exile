@@ -29,6 +29,10 @@ public class Hex
         {
             Type = "Void";
         }
+
+        Inventory = new Inventory(8);
+        Inventory.AddItem(new Item(ItemData.ItemDatas["Basic Blank Rune"]).setAmount(Q));
+        Inventory.AddItem(new Item(ItemData.ItemDatas["Basic Blank Rune"]).setAmount(R));
     }
 
     public readonly int Q;  // Column
@@ -37,6 +41,8 @@ public class Hex
 
     public string Name;  // The name of the Hex
     public string Type;
+
+    public Inventory Inventory;
 
     public static Dictionary<string, int> HexTypes;
 
