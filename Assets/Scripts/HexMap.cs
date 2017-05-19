@@ -14,17 +14,12 @@ public class HexMap : MonoBehaviour
 	void Start ()
     {
         ItemData.CreateItemDatas();
-        Hex.HexTypes = new Dictionary<string, int>();
-        for (int i = 0; i < HexMaterials.Length; i++)
-        {
-            Hex.HexTypes.Add(HexMaterials[i].name, i);
-            Debug.Log(HexMaterials[i].name);
-        }
+        HexType.Init();
+
         GenerateMap();
     }
 
     public GameObject HexPrefab;
-    public Material[] HexMaterials;
 
     public int NumRows = 10;
     public int NumCols = 15;
@@ -54,7 +49,7 @@ public class HexMap : MonoBehaviour
                 HexGO.GetComponent<HexComponent>().Hex = h;
                 HexGO.GetComponent<HexComponent>().HexMap = this;
                 Renderer r = HexGO.transform.Find("HexModel").GetComponent<Renderer>();
-                r.material = HexMaterials[Hex.HexTypes[h.Type]];
+                r.material = h.Type.Material;
             }
         }
     }

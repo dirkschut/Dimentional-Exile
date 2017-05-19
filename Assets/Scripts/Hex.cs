@@ -23,11 +23,11 @@ public class Hex
 
         if(Q == 0 && R == 0)
         {
-            Type = "Cell";
+            Type = HexType.Cell;
         }
         else
         {
-            Type = "Void";
+            Type = HexType.Void;
         }
 
         Inventory = new Inventory(8);
@@ -40,11 +40,10 @@ public class Hex
     public readonly int S;  // Sum
 
     public string Name;  // The name of the Hex
-    public string Type;
+
+    public HexType Type;
 
     public Inventory Inventory;
-
-    public static Dictionary<string, int> HexTypes;
 
     public static readonly float border = 0.0f;  // The border between hexes
     public static readonly float WIDTH_MULTIPLIER = Mathf.Sqrt(3) / 2;  // The multiplier of the width of a hex compared to its height

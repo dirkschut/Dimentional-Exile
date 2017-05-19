@@ -49,7 +49,7 @@ public class HexInfoComponent : MonoBehaviour {
         {
             this.transform.FindChild("Name").GetComponent<Text>().text = Hex.Name;
             this.transform.FindChild("Position").GetComponent<Text>().text = "Position: " + Hex.Q + ", " + Hex.R;
-            this.transform.FindChild("Type").GetComponent<Text>().text = "Type: " + Hex.Type;
+            this.transform.FindChild("Type").GetComponent<Text>().text = "Type: " + Hex.Type.Name;
 
             for (int i = 0; i < InventoryCells.Length; i++)
             {
