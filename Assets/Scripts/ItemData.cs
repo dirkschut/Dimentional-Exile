@@ -14,11 +14,10 @@ public class ItemData
     /// <param name="name">The name of the ItemData.</param>
     public ItemData(string name)
     {
-        ItemDatas.Add(name, this);
         this.Name = name;
     }
 
-    public static Dictionary<string, ItemData> ItemDatas;  // The dictionary of all the itemdatas
+    public static ItemData RuneBasicBlank;
 
     public string Name;  // The name of the itemdata
     public Sprite Texture;  // The sprite of the itemdata
@@ -29,9 +28,7 @@ public class ItemData
     /// </summary>
     public static void CreateItemDatas()
     {
-        ItemDatas = new Dictionary<string, ItemData>();
-
-        new ItemData("Basic Blank Rune").SetImage("Basic Blank Rune").SetStackLimit(10);
+        RuneBasicBlank = new ItemData("Basic Blank Rune").SetImage("Basic Blank Rune").SetStackLimit(10);
     }
 
     /// <summary>

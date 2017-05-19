@@ -31,8 +31,8 @@ public class Hex
         }
 
         Inventory = new Inventory(8);
-        Inventory.AddItem(new Item(ItemData.ItemDatas["Basic Blank Rune"]).setAmount(Q));
-        Inventory.AddItem(new Item(ItemData.ItemDatas["Basic Blank Rune"]).setAmount(R));
+        Inventory.AddItem(new Item(ItemData.RuneBasicBlank).setAmount(Q));
+        Inventory.AddItem(new Item(ItemData.RuneBasicBlank).setAmount(R));
     }
 
     public readonly int Q;  // Column
