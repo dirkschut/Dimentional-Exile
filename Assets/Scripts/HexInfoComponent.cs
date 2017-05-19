@@ -13,6 +13,11 @@ public class HexInfoComponent : MonoBehaviour {
     {
         set
         {
+            foreach(GameObject cell in InventoryCells)
+            {
+                Destroy(cell);
+            }
+
             hex = value;
             InventoryCells = new GameObject[hex.Inventory.Items.Length];
             for (int i = 0; i < InventoryCells.Length; i++)
@@ -28,6 +33,8 @@ public class HexInfoComponent : MonoBehaviour {
     }
 
     public static bool mouseOver = false;  // If the mouse is over this panel, this variable is true
+
+    public static GameObject MouseOverCell;
 
     public GameObject InventoryCell;
 
@@ -73,5 +80,10 @@ public class HexInfoComponent : MonoBehaviour {
     public void OnMouseExit()
     {
         mouseOver = false;
+    }
+
+    public static void OnMouseEnterCell(GameObject Cell)
+    {
+
     }
 }
