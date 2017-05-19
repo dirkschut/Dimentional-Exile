@@ -13,7 +13,8 @@ public class HexMouse : MonoBehaviour {
     /// </summary>
     private void OnMouseEnter()
     {
-        this.transform.parent.gameObject.GetComponent<HexComponent>().Hex.Hover();
+        if(!HexInfoComponent.mouseOver)
+            this.transform.parent.gameObject.GetComponent<HexComponent>().Hex.Hover();
     }
 
     /// <summary>

@@ -147,8 +147,8 @@ public class Hex
     /// </summary>
     public void Hover()
     {
-        GameObject.Find("HoverInfoName").GetComponent<Text>().text = "Name: " + Name;
-        GameObject.Find("HoverInfoPosition").GetComponent<Text>().text = "Position: " + R + "," + Q;
+        GameObject.Find("HoverInfo1").GetComponent<Text>().text = "Name: " + Name;
+        GameObject.Find("HoverInfo2").GetComponent<Text>().text = "Position: " + R + "," + Q;
     }
 
     /// <summary>

@@ -24,6 +24,7 @@ public class HexInfoComponent : MonoBehaviour {
             {
                 InventoryCells[i] = GameObject.Instantiate(InventoryCell, this.transform.Find("Inventory"));
                 InventoryCells[i].transform.Translate(new Vector3(i % 4 * 44, Mathf.Floor(i / 4) * -44, 0));
+                InventoryCells[i].GetComponent<InventoryCellMouse>().Item = hex.Inventory.Items[i];
             }
         }
         get
