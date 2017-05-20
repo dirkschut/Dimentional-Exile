@@ -15,6 +15,7 @@ public class ItemData
     public ItemData(string name)
     {
         this.Name = name;
+        SetImage("default");
     }
 
     public static ItemData RuneBasicBlank;
