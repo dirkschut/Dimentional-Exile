@@ -37,13 +37,14 @@ public class HexInfoComponent : MonoBehaviour {
             int actionCounter = 0;
             foreach(HexAction action in hex.Type.Actions)
             {
-                HexActions[actionCounter] = GameObject.Instantiate(HexAction, this.transform.Find("Actions"));
+                HexActions[actionCounter] = GameObject.Instantiate(HexAction, this.transform.Find("Actions").Find("Viewport").Find("Content"));
                 HexActions[actionCounter].transform.Translate(new Vector3(0, actionCounter * -30, 0));
                 HexActions[actionCounter].transform.Find("Text").GetComponent<Text>().text = action.Name;
                 HexActions[actionCounter].GetComponent<ActionMouse>().Hex = hex;
                 HexActions[actionCounter].GetComponent<ActionMouse>().HexAction = action;
                 actionCounter++;
             }
+            this.transform.Find("Actions").Find("Viewport").Find("Content").GetComponent<RectTransform>().sizeDelta = new Vector2(0, 40 + actionCounter * 30);
         }
         get
         {
@@ -67,9 +68,9 @@ public class HexInfoComponent : MonoBehaviour {
 	void Update () {
         if(Hex != null)
         {
-            this.transform.FindChild("Name").GetComponent<Text>().text = Hex.Name;
-            this.transform.FindChild("Position").GetComponent<Text>().text = "Position: " + Hex.Q + ", " + Hex.R;
-            this.transform.FindChild("Type").GetComponent<Text>().text = "Type: " + Hex.Type.Name;
+            this.transform.Find("Name").GetComponent<Text>().text = Hex.Name;
+            this.transform.Find("Position").GetComponent<Text>().text = "Position: " + Hex.Q + ", " + Hex.R;
+            this.transform.Find("Type").GetComponent<Text>().text = "Type: " + Hex.Type.Name;
 
             for (int i = 0; i < InventoryCells.Length; i++)
             {
