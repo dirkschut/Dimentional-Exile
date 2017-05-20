@@ -8,6 +8,7 @@ public class HexType {
     {
         this.Name = name;
         Actions = new List<HexAction>();
+        SetMaterial("default");
     }
 
     public static HexType Void;
