@@ -14,6 +14,7 @@ public class HexMap : MonoBehaviour
 	void Start ()
     {
         ItemData.CreateItemDatas();
+        HexAction.Init();
         HexType.Init();
 
         GenerateMap();

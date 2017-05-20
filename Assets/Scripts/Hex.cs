@@ -157,4 +157,13 @@ public class Hex
     {
         GameObject.Find("HexInfo").GetComponent<HexInfoComponent>().Hex = this;
     }
+
+    public void DoAction(HexAction action)
+    {
+        Debug.Log(action.Name);
+        if(action.Output != null)
+        {
+            Inventory.AddItem(action.Output);
+        }
+    }
 }

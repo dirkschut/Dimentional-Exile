@@ -18,13 +18,31 @@ public class HexInfoComponent : MonoBehaviour {
                 Destroy(cell);
             }
 
+            foreach(GameObject action in HexActions)
+            {
+                Destroy(action);
+            }
+
             hex = value;
+
             InventoryCells = new GameObject[hex.Inventory.Items.Length];
             for (int i = 0; i < InventoryCells.Length; i++)
             {
                 InventoryCells[i] = GameObject.Instantiate(InventoryCell, this.transform.Find("Inventory"));
                 InventoryCells[i].transform.Translate(new Vector3(i % 4 * 44, Mathf.Floor(i / 4) * -44, 0));
                 InventoryCells[i].GetComponent<InventoryCellMouse>().Item = hex.Inventory.Items[i];
+            }
+
+            HexActions = new GameObject[hex.Type.Actions.Count];
+            int actionCounter = 0;
+            foreach(HexAction action in hex.Type.Actions)
+            {
+                HexActions[actionCounter] = GameObject.Instantiate(HexAction, this.transform.Find("Actions"));
+                HexActions[actionCounter].transform.Translate(new Vector3(0, actionCounter * -30, 0));
+                HexActions[actionCounter].transform.Find("Text").GetComponent<Text>().text = action.Name;
+                HexActions[actionCounter].GetComponent<ActionMouse>().Hex = hex;
+                HexActions[actionCounter].GetComponent<ActionMouse>().HexAction = action;
+                actionCounter++;
             }
         }
         get
@@ -38,8 +56,10 @@ public class HexInfoComponent : MonoBehaviour {
     public static GameObject MouseOverCell;
 
     public GameObject InventoryCell;
+    public GameObject HexAction;
 
     public GameObject[] InventoryCells;
+    public GameObject[] HexActions;
 
 	/// <summary>
     /// Updates the info panel
