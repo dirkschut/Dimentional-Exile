@@ -22,6 +22,8 @@ public class ItemData
 	public static ItemData RuneBasicSpace;
 	public static ItemData RuneBasicStability;
 
+	public static ItemData ClusterBasicExpansion;
+
     public string Name;  // The name of the itemdata
     public Sprite Texture;  // The sprite of the itemdata
     public int StackLimit = 99;  // The maximum number of items in an Item object
@@ -34,6 +36,10 @@ public class ItemData
         RuneBasicBlank = new ItemData("Basic Blank Rune").SetImage("Basic Blank Rune").SetStackLimit(10);
 		RuneBasicSpace = new ItemData("Basic Space Rune").SetImage("Basic Space Rune").SetStackLimit(10);
 		RuneBasicStability = new ItemData("Basic Stability Rune").SetImage("Basic Stability Rune").SetStackLimit(10);
+
+		ClusterBasicExpansion = new ItemData ("Basic Expansion Cluster");
+		ClusterBasicExpansion.SetImage ("Basic Expansion Cluster");
+		ClusterBasicExpansion.SetStackLimit (1);
     }
 
     /// <summary>

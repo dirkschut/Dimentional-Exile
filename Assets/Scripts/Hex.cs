@@ -161,13 +161,15 @@ public class Hex
     public void DoAction(HexAction action)
     {
         Debug.Log(action.Name);
-		if (action.Input != null)
+		if (action.GetInput().Count > 0)
 		{
-			int amount = Inventory.RemoveItem (action.Input);
-			if (amount > 0)
+			foreach (Item i in action.GetInput())
 			{
-				Debug.Log ("Missing " + amount + " " + action.Input.ItemData.Name);
-				return;
+				int amount = Inventory.RemoveItem (i);
+				if (amount > 0) {
+					Debug.Log ("Missing " + amount + " " + i.ItemData.Name);
+					return;
+				}
 			}
 		}
 

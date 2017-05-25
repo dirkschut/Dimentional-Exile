@@ -7,6 +7,7 @@ public class HexAction {
     public HexAction(string name)
     {
         this.Name = name;
+		Input = new List<Item> ();
     }
 
     public static HexAction CreateRuneBasicBlank;
@@ -14,9 +15,11 @@ public class HexAction {
 	public static HexAction CreateRuneBasicSpace;
 	public static HexAction CreateRuneBasicStability;
 
+	public static HexAction CreateClusterBasicExpansion;
+
     public string Name;
     public Item Output;
-	public Item Input;
+	private List<Item> Input;
 
     public static void Init()
     {
@@ -30,6 +33,11 @@ public class HexAction {
 		CreateRuneBasicStability = new HexAction("Create Basic Stability Rune");
 		CreateRuneBasicStability.SetOutput (ItemData.RuneBasicStability, 1);
 		CreateRuneBasicStability.SetInput (ItemData.RuneBasicBlank, 1);
+
+		CreateClusterBasicExpansion = new HexAction ("Create Basic Expansion Cluster");
+		CreateClusterBasicExpansion.SetOutput (ItemData.ClusterBasicExpansion, 1);
+		CreateClusterBasicExpansion.AddInput (ItemData.RuneBasicSpace, 2);
+		CreateClusterBasicExpansion.AddInput (ItemData.RuneBasicStability, 1);
     }
 
     public HexAction SetOutput(ItemData item, int amount)
@@ -40,8 +48,18 @@ public class HexAction {
 
 	public HexAction SetInput(ItemData item, int amount)
 	{
-		Input = new Item (item).setAmount(amount);
+		Input.Add(new Item (item).setAmount(amount));
 		return this;
 	}
 
+	public HexAction AddInput(ItemData item, int amount)
+	{
+		Input.Add(new Item (item).setAmount(amount));
+		return this;
+	}
+
+	public List<Item> GetInput()
+	{
+		return Input;
+	}
 }

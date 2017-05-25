@@ -28,6 +28,7 @@ public class HexType {
 		Cell.AddAction (HexAction.CreateTwoRuneBasicBlank);
 		Cell.AddAction (HexAction.CreateRuneBasicSpace);
 		Cell.AddAction (HexAction.CreateRuneBasicStability);
+		Cell.AddAction (HexAction.CreateClusterBasicExpansion);
     }
 
     public HexType SetMaterial(string matName)
