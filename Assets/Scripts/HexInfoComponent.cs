@@ -82,12 +82,13 @@ public class HexInfoComponent : MonoBehaviour, IDragHandler, IPointerEnterHandle
             {
                 if (Hex.Inventory.Items[i] != null)
                 {
+					InventoryCells [i].transform.Find ("Sprite").GetComponent<Image> ().enabled = true;
                     InventoryCells[i].transform.Find("Sprite").GetComponent<Image>().sprite = Hex.Inventory.Items[i].ItemData.Texture;
                     InventoryCells[i].transform.Find("Amount").GetComponent<Text>().text = Hex.Inventory.Items[i].Amount.ToString();
                 }
                 else
                 {
-                    InventoryCells[i].transform.Find("Sprite").GetComponent<Image>().sprite = null;
+					InventoryCells [i].transform.Find ("Sprite").GetComponent<Image> ().enabled = false;
                     InventoryCells[i].transform.Find("Amount").GetComponent<Text>().text = "";
                 }
             }
