@@ -155,7 +155,7 @@ public class Hex
     /// </summary>
     public void Click()
     {
-        GameObject.Find("HexInfo").GetComponent<HexInfoComponent>().Hex = this;
+        GameObject.Find("WindowManager").GetComponent<WindowManager>().MakeHexInfoWindow(this);
     }
 
     public void DoAction(HexAction action)

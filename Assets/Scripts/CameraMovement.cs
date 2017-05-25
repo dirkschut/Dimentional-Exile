@@ -31,7 +31,7 @@ public class CameraMovement : MonoBehaviour
     {
         float scrollAmount = 0;
 
-        if(Input.GetAxis("Mouse ScrollWheel") != 0f && !HexInfoComponent.mouseOver)
+		if(Input.GetAxis("Mouse ScrollWheel") != 0f && !WindowManager.MouseOverUI)
         {
             if(Input.GetAxis("Mouse ScrollWheel") > 0)
             {

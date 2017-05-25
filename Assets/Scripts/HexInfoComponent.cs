@@ -8,7 +8,7 @@ using System;
 /// <summary>
 /// This component manages the Hex Info panel content and interaction
 /// </summary>
-public class HexInfoComponent : MonoBehaviour, IDragHandler {
+public class HexInfoComponent : MonoBehaviour, IDragHandler, IPointerEnterHandler, IPointerExitHandler {
 
     private Hex hex;
     public Hex Hex
@@ -54,8 +54,6 @@ public class HexInfoComponent : MonoBehaviour, IDragHandler {
         }
     }
 
-    public static bool mouseOver = false;  // If the mouse is over this panel, this variable is true
-
     public static GameObject MouseOverCell;
 
     public GameObject InventoryCell;
@@ -63,6 +61,13 @@ public class HexInfoComponent : MonoBehaviour, IDragHandler {
 
     public GameObject[] InventoryCells;
     public GameObject[] HexActions;
+
+    public bool MouseOver = false;
+
+	void Start()
+	{
+		GameObject.Find ("WindowManager").GetComponent<WindowManager> ().RegisterWindow (this);
+	}
 
 	/// <summary>
     /// Updates the info panel
@@ -89,22 +94,6 @@ public class HexInfoComponent : MonoBehaviour, IDragHandler {
         }
 	}
 
-    /// <summary>
-    /// Gets called when the mouse enters the info panel
-    /// </summary>
-    public void OnMouseEnter()
-    {
-        mouseOver = true;
-    }
-
-    /// <summary>
-    /// Gets called when the mouse leaves the info panel
-    /// </summary>
-    public void OnMouseExit()
-    {
-        mouseOver = false;
-    }
-
     public static void OnMouseEnterCell(GameObject Cell)
     {
 
@@ -113,5 +102,15 @@ public class HexInfoComponent : MonoBehaviour, IDragHandler {
     public void OnDrag(PointerEventData eventData)
     {
         this.transform.Translate(new Vector3(eventData.delta.x, eventData.delta.y, 0));
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        MouseOver = true;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        MouseOver = false;
     }
 }

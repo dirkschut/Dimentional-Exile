@@ -9,7 +9,6 @@ public class HexInfoClose : MonoBehaviour, IPointerDownHandler {
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log(transform.parent.name);
         Destroy(transform.parent.gameObject);
     }
 }

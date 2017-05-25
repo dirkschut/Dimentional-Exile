@@ -13,7 +13,7 @@ public class HexMouse : MonoBehaviour {
     /// </summary>
     private void OnMouseEnter()
     {
-        if(!HexInfoComponent.mouseOver)
+		if(!WindowManager.MouseOverUI)
             this.transform.parent.gameObject.GetComponent<HexComponent>().Hex.Hover();
     }
 
@@ -22,7 +22,7 @@ public class HexMouse : MonoBehaviour {
     /// </summary>
     private void OnMouseDown()
     {
-        if(!HexInfoComponent.mouseOver)
+		if(!WindowManager.MouseOverUI)
             this.transform.parent.gameObject.GetComponent<HexComponent>().Hex.Click();
     }
 }
