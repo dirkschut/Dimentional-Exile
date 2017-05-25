@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using System;
 
 /// <summary>
 /// This component manages the Hex Info panel content and interaction
 /// </summary>
-public class HexInfoComponent : MonoBehaviour {
+public class HexInfoComponent : MonoBehaviour, IDragHandler {
 
     private Hex hex;
     public Hex Hex
@@ -106,5 +108,10 @@ public class HexInfoComponent : MonoBehaviour {
     public static void OnMouseEnterCell(GameObject Cell)
     {
 
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        this.transform.Translate(new Vector3(eventData.delta.x, eventData.delta.y, 0));
     }
 }
