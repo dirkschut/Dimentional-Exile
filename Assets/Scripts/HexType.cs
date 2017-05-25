@@ -22,7 +22,12 @@ public class HexType {
     public static void Init()
     {
         Void = new HexType("Void").SetMaterial("Void");
-        Cell = new HexType("Cell").SetMaterial("Cell").AddAction(HexAction.CreateRuneBasicBlank).AddAction(HexAction.CreateTwoRuneBasicBlank).AddAction(HexAction.CreateTwoRuneBasicBlank).AddAction(HexAction.CreateTwoRuneBasicBlank);
+
+        Cell = new HexType("Cell").SetMaterial("Cell");
+		Cell.AddAction (HexAction.CreateRuneBasicBlank);
+		Cell.AddAction (HexAction.CreateTwoRuneBasicBlank);
+		Cell.AddAction (HexAction.CreateRuneBasicSpace);
+		Cell.AddAction (HexAction.CreateRuneBasicStability);
     }
 
     public HexType SetMaterial(string matName)
