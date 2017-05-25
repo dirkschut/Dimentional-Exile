@@ -68,7 +68,6 @@ public class HexInfoComponent : MonoBehaviour {
 	void Update () {
         if(Hex != null)
         {
-            this.transform.Find("Name").GetComponent<Text>().text = Hex.Name;
             this.transform.Find("Position").GetComponent<Text>().text = "Position: " + Hex.Q + ", " + Hex.R;
             this.transform.Find("Type").GetComponent<Text>().text = "Type: " + Hex.Type.Name;
 
