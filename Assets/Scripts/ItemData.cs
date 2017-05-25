@@ -19,6 +19,7 @@ public class ItemData
     }
 
     public static ItemData RuneBasicBlank;
+	public static ItemData RuneBasicSpace;
 
     public string Name;  // The name of the itemdata
     public Sprite Texture;  // The sprite of the itemdata
@@ -30,6 +31,7 @@ public class ItemData
     public static void CreateItemDatas()
     {
         RuneBasicBlank = new ItemData("Basic Blank Rune").SetImage("Basic Blank Rune").SetStackLimit(10);
+		RuneBasicBlank = new ItemData("Basic Space Rune").SetImage("Basic Space Rune").SetStackLimit(10);
     }
 
     /// <summary>
