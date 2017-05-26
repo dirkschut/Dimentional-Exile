@@ -85,6 +85,7 @@ public class HexInfoComponent : MonoBehaviour, IDragHandler, IPointerEnterHandle
 					InventoryCells [i].transform.Find ("Sprite").GetComponent<Image> ().enabled = true;
                     InventoryCells[i].transform.Find("Sprite").GetComponent<Image>().sprite = Hex.Inventory.Items[i].ItemData.Texture;
                     InventoryCells[i].transform.Find("Amount").GetComponent<Text>().text = Hex.Inventory.Items[i].Amount.ToString();
+					InventoryCells[i].GetComponent<InventoryCellMouse>().Item = hex.Inventory.Items[i];
                 }
                 else
                 {

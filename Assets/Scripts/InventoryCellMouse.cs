@@ -11,6 +11,8 @@ public class InventoryCellMouse : MonoBehaviour, IPointerEnterHandler {
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+		Debug.Log ("ENTER");
+
         if (Item == null)
             return;
 
