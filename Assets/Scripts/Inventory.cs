@@ -103,4 +103,30 @@ public class Inventory {
         }
         return 0;
     }
+
+	public int CanRemoveItem(Item item)
+	{
+		int counter = 0;
+		foreach (Item i in Items)
+		{
+			if (i == null)
+			{
+				continue;
+			}
+
+			if (item.ItemData == i.ItemData)
+			{
+				counter += i.Amount;
+			}
+		}
+
+		if (counter >= item.Amount)
+		{
+			return 0;
+		}
+		else
+		{
+			return item.Amount - counter;
+		}
+	}
 }

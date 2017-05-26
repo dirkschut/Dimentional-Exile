@@ -163,13 +163,20 @@ public class Hex
         Debug.Log(action.Name);
 		if (action.GetInput().Count > 0)
 		{
+			bool cando = true;
 			foreach (Item i in action.GetInput())
 			{
-				int amount = Inventory.RemoveItem (i);
+				int amount = Inventory.CanRemoveItem (i);
 				if (amount > 0) {
 					Debug.Log ("Missing " + amount + " " + i.ItemData.Name);
+					cando = false;
 					return;
 				}
+			}
+
+			foreach (Item i in action.GetInput())
+			{
+				Inventory.RemoveItem (i);
 			}
 		}
 
