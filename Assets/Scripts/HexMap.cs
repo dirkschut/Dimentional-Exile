@@ -39,7 +39,6 @@ public class HexMap : MonoBehaviour
                 if (h.Q == 0 && h.R == 0)
                 {
                     h.Name = "Cell";
-                    GameObject.Find("WindowManager").GetComponent<WindowManager>().MakeHexInfoWindow(h);
                 }  
                 else
                     h.Name = "Void";
