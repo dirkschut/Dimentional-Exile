@@ -11,7 +11,7 @@ public class InventoryCellMouse : MonoBehaviour, IPointerEnterHandler {
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (Item == null)
+		if (Item == null)
             return;
 
         GameObject.Find("HoverInfo1").GetComponent<Text>().text = "Name: " + Item.ItemData.Name;

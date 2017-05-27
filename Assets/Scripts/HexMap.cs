@@ -21,6 +21,7 @@ public class HexMap : MonoBehaviour
     }
 
     public GameObject HexPrefab;
+	public List<GameObject> Hexes;
 
     public int NumRows = 10;
     public int NumCols = 15;
@@ -30,6 +31,8 @@ public class HexMap : MonoBehaviour
     /// </summary>
 	public void GenerateMap()
     {
+		Hexes = new List<GameObject> ();
+
         for (int col = 0; col < NumCols; col++)
         {
             for (int row = 0; row < NumRows; row++)
@@ -39,7 +42,6 @@ public class HexMap : MonoBehaviour
                 if (h.Q == 0 && h.R == 0)
                 {
                     h.Name = "Cell";
-                    GameObject.Find("WindowManager").GetComponent<WindowManager>().MakeHexInfoWindow(h);
                 }  
                 else
                     h.Name = "Void";
@@ -51,7 +53,17 @@ public class HexMap : MonoBehaviour
                 HexGO.GetComponent<HexComponent>().HexMap = this;
                 Renderer r = HexGO.transform.Find("HexModel").GetComponent<Renderer>();
                 r.material = h.Type.Material;
+
+				Hexes.Add (HexGO);
             }
         }
     }
+
+	public void UpdateMaterials()
+	{
+		foreach (GameObject hex in Hexes)
+		{
+			hex.transform.Find ("HexModel").GetComponent<Renderer> ().material = hex.GetComponent<HexComponent> ().Hex.Type.Material;
+		}
+	}
 }

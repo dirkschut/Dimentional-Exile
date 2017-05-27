@@ -13,15 +13,18 @@ public class HexType {
 
     public static HexType Void;
     public static HexType Cell;
+	public static HexType Expansion;
 
     public string Name;
     public Material Material;
 
     public List<HexAction> Actions;
 
+	public HexType UpgradeTo;
+
     public static void Init()
     {
-        Void = new HexType("Void").SetMaterial("Void");
+		Void = new HexType("Void").SetMaterial("Void");
 
         Cell = new HexType("Cell").SetMaterial("Cell");
 		Cell.AddAction (HexAction.CreateRuneBasicBlank);
@@ -29,6 +32,10 @@ public class HexType {
 		Cell.AddAction (HexAction.CreateRuneBasicSpace);
 		Cell.AddAction (HexAction.CreateRuneBasicStability);
 		Cell.AddAction (HexAction.CreateClusterBasicExpansion);
+
+		Expansion = new HexType ("Expansion");
+		Expansion.SetMaterial ("Expansion");
+		Void.SetUpgradeTo (Expansion);
     }
 
     public HexType SetMaterial(string matName)
@@ -42,5 +49,11 @@ public class HexType {
         Actions.Add(action);
         return this;
     }
+
+	public HexType SetUpgradeTo(HexType upgradeTo)
+	{
+		this.UpgradeTo = upgradeTo;
+		return this;
+	}
 
 }
