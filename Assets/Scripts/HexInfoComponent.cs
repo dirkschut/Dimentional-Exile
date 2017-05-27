@@ -47,6 +47,7 @@ public class HexInfoComponent : MonoBehaviour, IDragHandler, IPointerEnterHandle
                 actionCounter++;
             }
             this.transform.Find("Actions").Find("Viewport").Find("Content").GetComponent<RectTransform>().sizeDelta = new Vector2(0, 40 + actionCounter * 30);
+			this.transform.Find ("Upgrade").GetComponent<HexUpgrade> ().Hex = hex;
         }
         get
         {
