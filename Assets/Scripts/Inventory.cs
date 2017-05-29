@@ -7,16 +7,30 @@ using UnityEngine;
 /// </summary>
 public class Inventory {
 
-    public Item[] Items;  // The items in the inventory
-
-    /// <summary>
-    /// Creates an inventory with the given amount af slots.
-    /// </summary>
-    /// <param name="numslots">The amount of slots the inventory should have.</param>
+	/// <summary>
+	/// Creates an inventory with the given amount af slots.
+	/// </summary>
+	/// <param name="numslots">The amount of slots the inventory should have.</param>
 	public Inventory(int numslots)
+	{
+		Items = new Item[numslots];
+	}
+
+    private static Inventory globalInventory;
+    public static Inventory GlobalInventory
     {
-        Items = new Item[numslots];
+        get
+        {
+            if(globalInventory == null)
+            {
+                globalInventory = new Inventory(50);
+            }
+
+            return globalInventory;
+        }
     }
+
+    public Item[] Items;  // The items in the inventory
 
     /// <summary>
     /// Add an item to the inventory.

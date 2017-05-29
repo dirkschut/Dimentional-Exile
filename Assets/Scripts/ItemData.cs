@@ -33,13 +33,13 @@ public class ItemData
     /// </summary>
     public static void CreateItemDatas()
     {
-        RuneBasicBlank = new ItemData("Basic Blank Rune").SetImage("Basic Blank Rune").SetStackLimit(10);
-		RuneBasicSpace = new ItemData("Basic Space Rune").SetImage("Basic Space Rune").SetStackLimit(10);
-		RuneBasicStability = new ItemData("Basic Stability Rune").SetImage("Basic Stability Rune").SetStackLimit(10);
+        RuneBasicBlank = new ItemData("Basic Blank Rune").SetImage("Basic Blank Rune").SetStackLimit(500);
+		RuneBasicSpace = new ItemData("Basic Space Rune").SetImage("Basic Space Rune").SetStackLimit(500);
+		RuneBasicStability = new ItemData("Basic Stability Rune").SetImage("Basic Stability Rune").SetStackLimit(500);
 
 		ClusterBasicExpansion = new ItemData ("Basic Expansion Cluster");
 		ClusterBasicExpansion.SetImage ("Basic Expansion Cluster");
-		ClusterBasicExpansion.SetStackLimit (1);
+		ClusterBasicExpansion.SetStackLimit (10);
     }
 
     /// <summary>

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WindowManager : MonoBehaviour {
 
-	public List<HexInfoComponent> Windows;
+	public List<UIComponent> Windows;
 
     public GameObject HexInfoWindow;
 
@@ -13,29 +13,29 @@ public class WindowManager : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-		Windows = new List<HexInfoComponent>();
+		Windows = new List<UIComponent>();
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
 		bool mouseOverUI = false;
-		foreach(HexInfoComponent g in Windows)
+		foreach(UIComponent window in Windows)
         {
-			if (!g) {
-				Windows.Remove (g);
+			if (!window) {
+				Windows.Remove (window);
 				Update();
-				break;
+                break;
 			}
 
-			if (g.MouseOver) {
+			if (window.MouseOver) {
 				mouseOverUI = true;
 			}
         }
 		MouseOverUI = mouseOverUI;
 	}
 
-	public void RegisterWindow(HexInfoComponent window)
+	public void RegisterWindow(UIComponent window)
     {
         Windows.Add(window);
     }

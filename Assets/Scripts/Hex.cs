@@ -29,10 +29,6 @@ public class Hex
         {
             Type = HexType.Void;
         }
-
-        Inventory = new Inventory(8);
-        Inventory.AddItem(new Item(ItemData.RuneBasicBlank).setAmount(Q));
-        Inventory.AddItem(new Item(ItemData.RuneBasicBlank).setAmount(R));
     }
 
     public readonly int Q;  // Column
@@ -42,8 +38,6 @@ public class Hex
     public string Name;  // The name of the Hex
 
     public HexType Type;
-
-    public Inventory Inventory;
 
     public static readonly float border = 0.0f;  // The border between hexes
     public static readonly float WIDTH_MULTIPLIER = Mathf.Sqrt(3) / 2;  // The multiplier of the width of a hex compared to its height
@@ -166,7 +160,7 @@ public class Hex
 			bool cando = true;
 			foreach (Item i in action.GetInput())
 			{
-				int amount = Inventory.CanRemoveItem (i);
+				int amount = Inventory.GlobalInventory.CanRemoveItem (i);
 				if (amount > 0) {
 					Debug.Log ("Missing " + amount + " " + i.ItemData.Name);
 					cando = false;
@@ -176,13 +170,13 @@ public class Hex
 
 			foreach (Item i in action.GetInput())
 			{
-				Inventory.RemoveItem (i);
+				Inventory.GlobalInventory.RemoveItem (i);
 			}
 		}
 
         if(action.Output != null)
         {
-            Inventory.AddItem(action.Output);
+            Inventory.GlobalInventory.AddItem(action.Output);
         }
     }
 }
