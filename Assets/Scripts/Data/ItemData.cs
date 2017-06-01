@@ -24,6 +24,7 @@ namespace Data
         public static ItemData RuneBasicBlank;
         public static ItemData RuneBasicSpace;
         public static ItemData RuneBasicStability;
+        public static ItemData RuneBasicOre;
 
         public static ItemData ClusterBasicExpansion;
 
@@ -39,6 +40,7 @@ namespace Data
             RuneBasicBlank = new ItemData("Basic Blank Rune").SetImage("Basic Blank Rune").SetStackLimit(500);
             RuneBasicSpace = new ItemData("Basic Space Rune").SetImage("Basic Space Rune").SetStackLimit(500);
             RuneBasicStability = new ItemData("Basic Stability Rune").SetImage("Basic Stability Rune").SetStackLimit(500);
+            RuneBasicOre = new ItemData("Basic Ore Rune").SetImage("Basic Ore Rune").SetStackLimit(500);
 
             ClusterBasicExpansion = new ItemData("Basic Expansion Cluster");
             ClusterBasicExpansion.SetImage("Basic Expansion Cluster");

@@ -35,7 +35,6 @@ namespace Data
 
             Cell = new HexType("Cell");
             Cell.AddAction(HexAction.CreateRuneBasicBlank);
-            Cell.AddAction(HexAction.CreateTwoRuneBasicBlank);
             Cell.AddAction(HexAction.CreateRuneBasicSpace);
             Cell.AddAction(HexAction.CreateRuneBasicStability);
             Cell.AddAction(HexAction.CreateClusterBasicExpansion);
@@ -44,11 +43,18 @@ namespace Data
 
             Expansion = new HexType("Expansion");
             Expansion.SetMaterial("Expansion");
-            Void.SetUpgrade(new HexUpgrade(HexType.Expansion).SetInput(new Item(ItemData.ClusterBasicExpansion).SetAmount(1)));
 
             Workshop = new HexType("Workshop");
             Workshop.SetMaterial("Workshop");
             Workshop.SetModel("Workshop");
+            Workshop.AddAction(HexAction.CreateRuneBasicBlank);
+            Workshop.AddAction(HexAction.CreateRuneBasicSpace);
+            Workshop.AddAction(HexAction.CreateRuneBasicStability);
+            Workshop.AddAction(HexAction.CreateRuneBasicOre);
+            Workshop.AddAction(HexAction.CreateClusterBasicExpansion);
+
+
+            Void.SetUpgrade(new HexUpgrade(HexType.Expansion).SetInput(new Item(ItemData.ClusterBasicExpansion).SetAmount(1)));
             Expansion.SetUpgrade(new HexUpgrade(HexType.Workshop));
         }
 
