@@ -24,7 +24,7 @@ namespace Data
 
         public List<HexAction> Actions;
 
-        public HexType UpgradeTo;
+        public HexUpgrade Upgrade;
 
         public static void Init()
         {
@@ -39,7 +39,7 @@ namespace Data
 
             Expansion = new HexType("Expansion");
             Expansion.SetMaterial("Expansion");
-            Void.SetUpgradeTo(Expansion);
+            Void.SetUpgrade(new HexUpgrade(HexType.Expansion).SetInput(new Item(ItemData.ClusterBasicExpansion).SetAmount(1)));
         }
 
         public HexType SetMaterial(string matName)
@@ -54,11 +54,10 @@ namespace Data
             return this;
         }
 
-        public HexType SetUpgradeTo(HexType upgradeTo)
+        public HexType SetUpgrade(HexUpgrade upgrade)
         {
-            this.UpgradeTo = upgradeTo;
+            this.Upgrade = upgrade;
             return this;
         }
-
     }
 }

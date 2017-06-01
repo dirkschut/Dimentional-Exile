@@ -13,10 +13,9 @@ namespace UI
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (Hex.Type.UpgradeTo != null)
+            if (Hex.Type.Upgrade != null)
             {
-                Hex.Type = Hex.Type.UpgradeTo;
-                GameObject.Find("Hexmap").GetComponent<Data.HexMap>().UpdateMaterials();
+                Hex.Upgrade();
             }
         }
 

@@ -180,5 +180,25 @@ namespace Data
                 Inventory.GlobalInventory.AddItem(action.Output);
             }
         }
+
+        public void Upgrade()
+        {
+            foreach(Item item in Type.Upgrade.Input)
+            {
+                if (Inventory.GlobalInventory.CanRemoveItem(item) > 0)
+                {
+                    return;
+                }
+            }
+
+            foreach(Item item in Type.Upgrade.Input)
+            {
+                Inventory.GlobalInventory.RemoveItem(item);
+            }
+
+            Type = Type.Upgrade.HexType;
+
+            GameObject.Find("Hexmap").GetComponent<Data.HexMap>().UpdateMaterials();
+        }
     }
 }
