@@ -24,8 +24,10 @@ namespace Data
         public static ItemData RuneBasicBlank;
         public static ItemData RuneBasicSpace;
         public static ItemData RuneBasicStability;
+        public static ItemData RuneBasicOre;
 
         public static ItemData ClusterBasicExpansion;
+        public static ItemData ClusterBasicWorkshop;
 
         public string Name;  // The name of the itemdata
         public Sprite Texture;  // The sprite of the itemdata
@@ -39,10 +41,15 @@ namespace Data
             RuneBasicBlank = new ItemData("Basic Blank Rune").SetImage("Basic Blank Rune").SetStackLimit(500);
             RuneBasicSpace = new ItemData("Basic Space Rune").SetImage("Basic Space Rune").SetStackLimit(500);
             RuneBasicStability = new ItemData("Basic Stability Rune").SetImage("Basic Stability Rune").SetStackLimit(500);
+            RuneBasicOre = new ItemData("Basic Ore Rune").SetImage("Basic Ore Rune").SetStackLimit(500);
 
             ClusterBasicExpansion = new ItemData("Basic Expansion Cluster");
             ClusterBasicExpansion.SetImage("Basic Expansion Cluster");
             ClusterBasicExpansion.SetStackLimit(10);
+
+            ClusterBasicWorkshop = new ItemData("Basic WOrkshop Cluster");
+            ClusterBasicWorkshop.SetImage("Basic Workshop Cluster");
+            ClusterBasicWorkshop.SetStackLimit(10);
         }
 
         /// <summary>
