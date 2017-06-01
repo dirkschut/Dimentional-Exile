@@ -38,6 +38,7 @@ namespace Data
             Cell.AddAction(HexAction.CreateRuneBasicSpace);
             Cell.AddAction(HexAction.CreateRuneBasicStability);
             Cell.AddAction(HexAction.CreateClusterBasicExpansion);
+            Cell.AddAction(HexAction.CreateClusterBasicWorkshop);
             Cell.SetModel("Cell");
             Cell.SetMaterial("Cell");
 
@@ -52,10 +53,11 @@ namespace Data
             Workshop.AddAction(HexAction.CreateRuneBasicStability);
             Workshop.AddAction(HexAction.CreateRuneBasicOre);
             Workshop.AddAction(HexAction.CreateClusterBasicExpansion);
+            Workshop.AddAction(HexAction.CreateClusterBasicWorkshop);
 
 
             Void.SetUpgrade(new HexUpgrade(HexType.Expansion).SetInput(new Item(ItemData.ClusterBasicExpansion).SetAmount(1)));
-            Expansion.SetUpgrade(new HexUpgrade(HexType.Workshop));
+            Expansion.SetUpgrade(new HexUpgrade(HexType.Workshop).SetInput(new Item(ItemData.ClusterBasicWorkshop).SetAmount(1)));
         }
 
         public HexType SetMaterial(string matName)

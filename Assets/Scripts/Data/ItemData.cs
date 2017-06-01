@@ -27,6 +27,7 @@ namespace Data
         public static ItemData RuneBasicOre;
 
         public static ItemData ClusterBasicExpansion;
+        public static ItemData ClusterBasicWorkshop;
 
         public string Name;  // The name of the itemdata
         public Sprite Texture;  // The sprite of the itemdata
@@ -45,6 +46,10 @@ namespace Data
             ClusterBasicExpansion = new ItemData("Basic Expansion Cluster");
             ClusterBasicExpansion.SetImage("Basic Expansion Cluster");
             ClusterBasicExpansion.SetStackLimit(10);
+
+            ClusterBasicWorkshop = new ItemData("Basic WOrkshop Cluster");
+            ClusterBasicWorkshop.SetImage("Basic Workshop Cluster");
+            ClusterBasicWorkshop.SetStackLimit(10);
         }
 
         /// <summary>

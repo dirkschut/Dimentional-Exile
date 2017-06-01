@@ -20,6 +20,7 @@ namespace Data
         public static HexAction CreateRuneBasicOre;
 
         public static HexAction CreateClusterBasicExpansion;
+        public static HexAction CreateClusterBasicWorkshop;
 
         public string Name;
         public Item Output;
@@ -45,6 +46,11 @@ namespace Data
             CreateClusterBasicExpansion.SetOutput(ItemData.ClusterBasicExpansion, 1);
             CreateClusterBasicExpansion.AddInput(ItemData.RuneBasicSpace, 2);
             CreateClusterBasicExpansion.AddInput(ItemData.RuneBasicStability, 1);
+
+            CreateClusterBasicWorkshop = new HexAction("Create Basic Workshop Cluster");
+            CreateClusterBasicWorkshop.SetOutput(ItemData.ClusterBasicWorkshop, 1);
+            CreateClusterBasicWorkshop.SetInput(ItemData.ClusterBasicExpansion, 1);
+            CreateClusterBasicWorkshop.SetInput(ItemData.RuneBasicStability, 2);
         }
 
         public HexAction SetOutput(ItemData item, int amount)
