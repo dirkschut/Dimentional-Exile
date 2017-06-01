@@ -54,6 +54,13 @@ namespace Data
                     GameObject HexGO = Instantiate(HexPrefab, pos, Quaternion.identity, this.transform);
                     HexGO.GetComponent<UI.World.HexComponent>().Hex = h;
                     HexGO.GetComponent<UI.World.HexComponent>().HexMap = this;
+                    
+                    if(h.Type == HexType.Cell)
+                    {
+                        HexGO.transform.Find("HexModel").GetComponent<MeshFilter>().mesh = h.Type.Model.GetComponent<MeshFilter>().sharedMesh;
+                        Debug.Log(GameObject.Instantiate(h.Type.Model, HexGO.transform).name = "HexModel");
+                    }
+
                     Renderer r = HexGO.transform.Find("HexModel").GetComponent<Renderer>();
                     r.material = h.Type.Material;
 
