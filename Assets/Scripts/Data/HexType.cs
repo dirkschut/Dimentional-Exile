@@ -19,6 +19,7 @@ namespace Data
         public static HexType Void;
         public static HexType Cell;
         public static HexType Expansion;
+        public static HexType Workshop;
 
         public string Name;
         public Material Material;
@@ -44,6 +45,11 @@ namespace Data
             Expansion = new HexType("Expansion");
             Expansion.SetMaterial("Expansion");
             Void.SetUpgrade(new HexUpgrade(HexType.Expansion).SetInput(new Item(ItemData.ClusterBasicExpansion).SetAmount(1)));
+
+            Workshop = new HexType("Workshop");
+            Workshop.SetMaterial("Workshop");
+            Workshop.SetModel("Workshop");
+            Expansion.SetUpgrade(new HexUpgrade(HexType.Workshop));
         }
 
         public HexType SetMaterial(string matName)
