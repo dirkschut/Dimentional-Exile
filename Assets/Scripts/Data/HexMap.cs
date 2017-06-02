@@ -58,7 +58,7 @@ namespace Data
                     if(h.Type.Model != null)
                     {
                         HexGO.transform.Find("HexModel").GetComponent<MeshFilter>().mesh = h.Type.Model.GetComponent<MeshFilter>().sharedMesh;
-                        Debug.Log(GameObject.Instantiate(h.Type.Model, HexGO.transform).name = "HexModel");
+                        //Debug.Log(GameObject.Instantiate(h.Type.Model, HexGO.transform).name = "HexModel");
                     }
 
                     Renderer r = HexGO.transform.Find("HexModel").GetComponent<Renderer>();
@@ -74,8 +74,8 @@ namespace Data
             foreach (GameObject hexObject in Hexes)
             {
                 Hex hex = hexObject.GetComponent<UI.World.HexComponent>().Hex;
-                hexObject.transform.Find("HexModel").GetComponent<Renderer>().material = hex.Type.Material;
                 hexObject.transform.Find("HexModel").GetComponent<MeshFilter>().mesh = hex.Type.Model.GetComponent<MeshFilter>().sharedMesh;
+                hexObject.transform.Find("HexModel").GetComponent<Renderer>().material = hex.Type.Material;
             }
         }
     }
